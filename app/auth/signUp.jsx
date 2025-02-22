@@ -7,19 +7,21 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Colors from "./../../constants/Colors";
 import { useRouter } from "expo-router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./../../config/firebaseConfig";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "./../../config/firebaseConfig";
+import { UserContext } from "./../../context/userContext";
 
 export default function SignUp() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {userDetails, setUserDetails} = useContext(UserContext);
 
   const createNewAccount = () => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -36,12 +38,15 @@ export default function SignUp() {
   }
 
   const saveUser = async (user) => {
-    await setDoc(doc(db, 'users', email), {
+    const data = {
       name: name,
       email: email,
       member: false,
       uid: user?.uid
-    });
+    }
+    await setDoc(doc(db, 'users', email), data);
+
+    setUserDetails(data);
   }
 
   return (
