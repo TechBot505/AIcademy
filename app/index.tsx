@@ -26,8 +26,8 @@ export default function Index() {
             <Text style={{
               color: Colors.WHITE,
               fontSize: 30,
-              fontWeight: 'bold',
-              textAlign: 'center'
+              textAlign: 'center',
+              fontFamily: 'outfit-bold'
             }}>Welcome to AIcademy</Text>
 
             <Text style={{
@@ -35,6 +35,7 @@ export default function Index() {
               fontSize: 18,
               textAlign: 'center',
               marginTop: 20,
+              fontFamily: 'outfit'
             }}>Transform your ideas into engaging educational content, effortlessly with AI! 📚🤖</Text>
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Get Started</Text>
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign: 'center',
         fontSize: 18,
-        color: Colors.PRIMARY
+        color: Colors.PRIMARY,
+        fontFamily: 'outfit'
     }
 })
