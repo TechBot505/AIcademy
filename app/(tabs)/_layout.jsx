@@ -6,7 +6,19 @@ import Colors from '../../constants/Colors'
 
 export default function TabLayout() {
     return (
-        <Tabs screenOptions={{ headerShown: false }}>
+        <Tabs screenOptions={{ 
+            headerShown: false,
+            tabBarStyle: {
+                borderWidth: 1,
+                borderRadius: 10,
+                backgroundColor: Colors.WHITE,
+                marginBottom: 10,
+                width: '95%',
+                alignSelf: 'center',
+                height: 55,
+            }
+        }}
+        >
             <Tabs.Screen name="home" 
                 options={{ 
                     title: 'Home',
