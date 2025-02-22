@@ -50,7 +50,7 @@ export default function SignIn() {
           marginTop: 20,
           width: 300,
         }}
-        onPress={() => alert("Account created successfully!")}
+        onPress={() => alert("Logged In successfully!")}
       >
         <Text
           style={{

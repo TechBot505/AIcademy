@@ -7,12 +7,43 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Colors from "./../../constants/Colors";
 import { useRouter } from "expo-router";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./../../config/firebaseConfig";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "./../../config/firebaseConfig";
 
 export default function SignUp() {
-    const router = useRouter();
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const createNewAccount = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(async (res) => {
+      const user = res.user;
+      console.log(user);
+      await saveUser(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    });
+  }
+
+  const saveUser = async (user) => {
+    await setDoc(doc(db, 'users', email), {
+      name: name,
+      email: email,
+      member: false,
+      uid: user?.uid
+    });
+  }
+
   return (
     <View
       style={{
@@ -36,12 +67,13 @@ export default function SignUp() {
         Create New Account
       </Text>
 
-      <TextInput style={styles.textInput} placeholder="Full Name" />
-      <TextInput style={styles.textInput} placeholder="Email" />
+      <TextInput style={styles.textInput} onChangeText={(value) => setName(value)} placeholder="Full Name" />
+      <TextInput style={styles.textInput} onChangeText={(value) => setEmail(value)} placeholder="Email" />
       <TextInput
         style={styles.textInput}
         placeholder="Password"
         secureTextEntry={true}
+        onChangeText={(value) => setPassword(value)}
       />
       <TouchableOpacity
         style={{
@@ -51,7 +83,7 @@ export default function SignUp() {
           marginTop: 20,
           width: 300,
         }}
-        onPress={() => alert("Account created successfully!")}
+        onPress={createNewAccount}
       >
         <Text
           style={{
@@ -80,9 +112,7 @@ export default function SignUp() {
         >
           Already have an Account?
         </Text>
-        <Pressable
-            onPress={() => router.push('/auth/signIn')}
-        >
+        <Pressable onPress={() => router.push("/auth/signIn")}>
           <Text
             style={{
               color: Colors.PRIMARY,
