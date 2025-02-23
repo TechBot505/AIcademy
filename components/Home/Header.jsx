@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react';
-import { UserContext } from '../../context/userContext';
-import Colors from '../../constants/Colors';
+import { UserContext } from '@/context/userContext';
+import Colors from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Header() {
@@ -26,7 +26,7 @@ export default function Header() {
                     fontFamily: 'outfit',
                     color: Colors.SECONDARY
                 }}>
-                    What would you like to learn today?
+                    Let's Get Started!
                 </Text>
             </View>
             <TouchableOpacity>

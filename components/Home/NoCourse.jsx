@@ -1,8 +1,10 @@
 import { View, Text, Image } from 'react-native';
 import React from 'react';
 import Button from '../Shared/Button';
+import { useRouter } from 'expo-router';
 
 export default function NoCourse() {
+    const router = useRouter();
     return (
         <View style={{
             marginTop: 60,
@@ -21,7 +23,7 @@ export default function NoCourse() {
             }}>
                 You don't have any Course
             </Text>
-            <Button title="Create New Course" />
+            <Button title="Create New Course" onPress={() => router.push('/addCourse')} />
             <Button title="Explore Existing Courses" type="outline" />
         </View>
     )

@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
-import { UserContext } from "./../context/userContext";
+import { UserContext } from "@/context/userContext";
 import React, { useState } from "react";
 
 export default function RootLayout() {

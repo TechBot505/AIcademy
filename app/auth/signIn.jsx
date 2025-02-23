@@ -10,12 +10,12 @@ import {
   ActivityIndicator,
 } from "react-native";
 import React, { useState, useContext } from "react";
-import Colors from "./../../constants/Colors";
+import Colors from "@/constants/Colors";
 import { useRouter } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "./../../config/firebaseConfig";
+import { auth, db } from "@/config/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
-import { UserContext } from "./../../context/userContext";
+import { UserContext } from "@/context/userContext";
 
 export default function SignIn() {
   const router = useRouter();

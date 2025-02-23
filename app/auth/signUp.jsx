@@ -6,15 +6,16 @@ import {
   StyleSheet,
   TouchableOpacity,
   Pressable,
+  ToastAndroid,
+  ActivityIndicator
 } from "react-native";
 import React, { useContext, useState } from "react";
-import Colors from "./../../constants/Colors";
+import Colors from "@/constants/Colors";
 import { useRouter } from "expo-router";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./../../config/firebaseConfig";
+import { auth, db } from "@/config/firebaseConfig";
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "./../../config/firebaseConfig";
-import { UserContext } from "./../../context/userContext";
+import { UserContext } from "@/context/userContext";
 
 export default function SignUp() {
   const router = useRouter();
@@ -22,18 +23,23 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {userDetails, setUserDetails} = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
 
   const createNewAccount = () => {
+    setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
     .then(async (res) => {
       const user = res.user;
       console.log(user);
       await saveUser(user);
+      setLoading(false);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
+      setLoading(false);
+      ToastAndroid.show(errorMessage, ToastAndroid.BOTTOM);
     });
   }
 
@@ -89,8 +95,9 @@ export default function SignUp() {
           width: 300,
         }}
         onPress={createNewAccount}
+        disabled={loading}
       >
-        <Text
+        {!loading ? <Text
           style={{
             color: Colors.WHITE,
             textAlign: "center",
@@ -99,7 +106,7 @@ export default function SignUp() {
           }}
         >
           Create Account
-        </Text>
+        </Text>: <ActivityIndicator size="small" color={Colors.WHITE} />}
       </TouchableOpacity>
 
       <View
