@@ -11,7 +11,7 @@ export default function NoCourse() {
             display: 'flex',
             alignItems: 'center',
         }}>
-            <Image source={require('../../assets/images/book.jpg')} style={{
+            <Image source={require('../../assets/images/book.png')} style={{
                 width: 200,
                 height: 200
             }} />

@@ -20,20 +20,21 @@ export default function Header() {
                 <Text style={{
                     fontSize: 24,
                     fontFamily: 'outfit-bold',
-                    marginBottom: 10
+                    marginBottom: 5,
+                    color: Colors.WHITE
                 }}>
                     Hello, {userDetails?.name.split(" ")[0]}
                 </Text>
                 <Text style={{
                     fontSize: 16,
                     fontFamily: 'outfit',
-                    color: Colors.SECONDARY
+                    color: Colors.ACCENT
                 }}>
                     Let's Get Started!
                 </Text>
             </View>
             <TouchableOpacity onPress={() => router.push('/addCourse')}>
-                <Ionicons name="settings-outline" size={32} color="black" />
+                <Ionicons name="settings-outline" size={32} color={Colors.WHITE} />
             </TouchableOpacity>
         </View>
     )
