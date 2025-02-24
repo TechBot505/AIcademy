@@ -17,7 +17,7 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        // setCourseList([]);
+        setCourseList([]);
         userDetails && getCourseList();
     }, [userDetails]);
 

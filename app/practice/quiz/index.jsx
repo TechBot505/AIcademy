@@ -54,6 +54,12 @@ export default function index() {
                 quizResult: result
             });
             setLoading(false);
+            router.replace({
+                pathname: '/practice/quiz/summary',
+                params: {
+                    quizResultParams: JSON.stringify(result),
+                }
+            })
         } catch (error) {
             console.log('Error', error);
             setLoading(false);

@@ -8,4 +8,6 @@ export default {
     DARK_GRAY: '#808080',
     GREEN: '#24b351',
     LIGHT_GREEN: '#DBFFDD',
+    RED: '#FF0000',
+    LIGHT_RED: '#FFDDDD',
 }
