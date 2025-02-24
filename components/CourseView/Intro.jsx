@@ -35,11 +35,11 @@ export default function Intro( { course } ) {
                     marginTop: 5,
                     }}
                 >
-                    <Ionicons name="book-outline" size={18} color="black" />
+                    <Ionicons name="book-outline" size={18} color={Colors.PRIMARY} />
                     <Text style={{
                         fontFamily: 'outfit',
                         fontSize: 16,
-                        color: Colors.SECONDARY,
+                        color: Colors.PRIMARY,
                     }}>{course?.chapters?.length} Chapters</Text>
                 </View>
                 <Text style={{
@@ -59,7 +59,7 @@ export default function Intro( { course } ) {
                 padding: 10,
                 zIndex: 100
             }} onPress={() => router.back()}>
-                <Ionicons name="arrow-back-sharp" size={28} color={Colors.SECONDARY} />
+                <Ionicons name="arrow-back-sharp" size={28} color={Colors.TERTIARY} />
             </Pressable>
         </View>
     )

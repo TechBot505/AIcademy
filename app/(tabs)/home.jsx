@@ -16,7 +16,7 @@ export default function Home() {
     const {userDetails, setUserDetails} = useContext(UserContext);
 
     useEffect(() => {
-        setCourseList([]);
+        // setCourseList([]);
         userDetails && getCourseList();
     }, [userDetails]);
 

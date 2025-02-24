@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 import React from 'react'
 import { useLocalSearchParams } from 'expo-router';
 import Intro from '../../components/CourseView/Intro';

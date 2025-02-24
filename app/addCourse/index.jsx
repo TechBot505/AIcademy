@@ -36,10 +36,12 @@ export default function AddCourse() {
             console.log(course);
             const courseData = course?.courses;
             courseData.forEach( async (item) => {
-                await setDoc(doc(db, "courses", Date.now().toString()), {
+                const docId = Date.now().toString();
+                await setDoc(doc(db, "courses", docId), {
                     ...item,
                     created_at: new Date(),
-                    created_by: userDetails?.email
+                    created_by: userDetails?.email,
+                    docId: docId
                 });
             })
             router.push('/(tabs)/home');
