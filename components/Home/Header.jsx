@@ -34,7 +34,7 @@ export default function Header() {
                 </Text>
             </View>
             <TouchableOpacity onPress={() => router.push('/addCourse')}>
-                <Ionicons name="settings-outline" size={32} color={Colors.WHITE} />
+                <Ionicons name="settings-outline" size={32} color={Colors.WHITE}/>
             </TouchableOpacity>
         </View>
     )
