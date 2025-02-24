@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, FlatList, ScrollView } from 'react-native'
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import Colors from './../../../constants/Colors';
@@ -36,7 +36,9 @@ export default function QuizSummary() {
             data={[]}
             showsVerticalScrollIndicator={false}
             ListHeaderComponent={
-                <View>
+                <View style={{
+                    marginBottom: -400,
+                }}>
                     <Image source={require('./../../../assets/images/gold.png')}
                         style={{
                             width: '100%',
@@ -44,7 +46,8 @@ export default function QuizSummary() {
                         }}
                     />
                     <View style={{
-                        position: 'absolute',
+                        // position: 'absolute',
+                        top: -400,
                         width: '100%',
                         padding: 35
                     }}>
@@ -115,7 +118,7 @@ export default function QuizSummary() {
                                         <View key={index} style={{
                                             padding: 15,
                                             borderRadius: 15,
-                                            marginTop: 5,
+                                            marginTop: 10,
                                             borderWidth: 1,
                                             backgroundColor: quizItem?.isCorrect ? Colors.LIGHT_GREEN : Colors.LIGHT_RED,
                                             borderColor: quizItem?.isCorrect ? Colors.GREEN : Colors.RED

@@ -53,21 +53,21 @@ export default function Home() {
                             height: 450,
                         }}
                     />
-                <View style={{
-                    padding: 25,
-                    paddingTop: Platform.OS === 'ios' && 45,
-                    paddingBottom: 70
-                }}>
-                    <Header />
-                    {courseList?.length==0 ? 
-                        <NoCourse /> : 
-                        <View>
-                            <CourseProgress courseList={courseList} />
-                            <PracticeSection />
-                            <CourseList courseList={courseList} />
-                        </View>
-                    }
-                </View>
+                    <View style={{
+                        padding: 25,
+                        paddingTop: Platform.OS === 'ios' && 45,
+                        paddingBottom: 70
+                    }}>
+                        <Header />
+                        {courseList?.length==0 ? 
+                            <NoCourse /> : 
+                            <View>
+                                <CourseProgress courseList={courseList} />
+                                <PracticeSection />
+                                <CourseList courseList={courseList} />
+                            </View>
+                        }
+                    </View>
                 </View>
             }
         />
