@@ -6,4 +6,6 @@ export default {
     ACCENT: '#EEEEEE',
     GRAY: '#A9A9A9',
     DARK_GRAY: '#808080',
+    GREEN: '#24b351',
+    LIGHT_GREEN: '#DBFFDD',
 }

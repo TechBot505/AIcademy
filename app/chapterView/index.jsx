@@ -17,7 +17,7 @@ export default function ChapterView() {
     const [loading, setLoading] = useState(false);
 
     const getProgress = (page) => {
-        const progress = (page / chapter?.content?.length);
+        const progress = (page+1 / chapter?.content?.length);
         return progress;
     }
 
