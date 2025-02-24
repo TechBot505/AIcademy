@@ -64,7 +64,7 @@ export default function AddCourse() {
     }
 
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1, backgroundColor: Colors.WHITE}}>
     <View
       style={{
         flex: 1,

@@ -41,7 +41,8 @@ export default function CourseProgress({ courseList }) {
                                 }}
                             />
                             <View style={{
-                                flex: 1
+                                flex: 1,
+                                justifyContent: 'center'
                             }}>
                                 <Text
                                     numberOfLines={2}
@@ -51,25 +52,25 @@ export default function CourseProgress({ courseList }) {
                                         flexWrap: 'wrap',
                                     }}
                                 >
-                                    {item?.title}
+                                    {item?.courseTitle}
                                 </Text>
                                 <Text style={{
                                     fontFamily: 'outfit',
                                     fontSize: 12,
                                     color: Colors.SECONDARY
-                                }}>{item?.chapters[0]?.content?.length} Chapters</Text>
+                                }}>{item?.chapters?.length} Chapters</Text>
                             </View>
                         </View>
                         <View style={{
                             marginTop: 10
                         }}>
-                            <ProgressBar progress={0.3} width={230} color={Colors.PRIMARY} />
+                            <ProgressBar progress={0.5} width={230} color={Colors.PRIMARY} />
                             <Text style={{
                                 fontFamily: 'outfit',
                                 fontSize: 12,
                                 color: Colors.SECONDARY,
                                 marginTop: 5
-                            }}>2 out of 5 Chapters Completed</Text>
+                            }}>2 out of {item?.chapters?.length} Chapters Completed</Text>
                         </View>
                     </View>
                 )}

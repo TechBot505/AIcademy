@@ -1,4 +1,4 @@
-import { View, Platform, ScrollView, FlatList } from 'react-native'
+import { View, Platform, FlatList } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
 import Header from './../../components/Home/Header';
 import Colors from './../../constants/Colors';
@@ -16,6 +16,7 @@ export default function Home() {
     const {userDetails, setUserDetails} = useContext(UserContext);
 
     useEffect(() => {
+        setCourseList([]);
         userDetails && getCourseList();
     }, [userDetails]);
 
@@ -33,21 +34,24 @@ export default function Home() {
     return (
         <FlatList 
             data={[]}
+            showsVerticalScrollIndicator={false}
+            style={{backgroundColor: Colors.WHITE}}
             ListHeaderComponent={
                 <View style={{
                     padding: 25,
                     paddingTop: Platform.OS === 'ios' && 45,
                     backgroundColor: Colors.WHITE,
-                    flex: 1
+                    flex: 1,
+                    paddingBottom: 70
                 }}>
                     <Header />
                     {courseList?.length==0 ? 
                         <NoCourse /> : 
-                            <View>
-                                <CourseProgress courseList={courseList} />
-                                <PracticeSection />
-                                <CourseList courseList={courseList} />
-                            </View>
+                        <View>
+                            <CourseProgress courseList={courseList} />
+                            <PracticeSection />
+                            <CourseList courseList={courseList} />
+                        </View>
                     }
                 </View>
             }

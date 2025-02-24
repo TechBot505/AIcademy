@@ -12,8 +12,9 @@ export default {
   // - Chapter Explain in HTML Form, (Code example if required),
   COURSE: dedent`: As you are a coaching teacher
     - User want to learn about all topics
-    - Create the course with Course Name, Description, and 3-4 chapters
-    - Make sure to add chapters with all learning material course wise
+    - Create the course with Course Title, Description, minimum of 4 and maximum of 7 Chapters.
+    - Each chapter generated should have a minimum of 2 and maximum of 5 elements (i.e. ChapterName and content, refer to the schema below)
+    - Make sure to add chapters with all learning materials like text, code, example, etc.
     - Add CourseBanner Image from ('/banner1.jpg','/banner2.jpg', '/banner3.jpg', '/banner4.jpg', '/banner5.jpg', '/banner6.jpg')
     - Explain the chapter content as detailed tutorial
     - Generate 5 Quiz, 10 Flashcard and 5 Questions answer
@@ -22,16 +23,16 @@ export default {
     - Output in JSON Format only
     - "courses": [
       {
-        "title": "",
+        "courseTitle": "",
         "description": "",
         "banner": "/banner1.png",
         "chapters": [
           {
-            "title": "",
+            "chapterName": "",
             "content": [
                 {
                     "topic": '<Topic in 2 to 4 words>',
-                    "explain": '<Detailed Explanation Tutorial>',
+                    "explaination": '<Detailed Explanation Tutorial>',
                     "code": 'Code example if required, else null',
                     "example": 'Example if required, else null'
                 }

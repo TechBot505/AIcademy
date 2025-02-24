@@ -1,10 +1,13 @@
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native'
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react';
 import { imageAssets } from './../../constants/Options';
 import Colors from './../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useRouter } from 'expo-router';
 
 export default function CourseList({ courseList }) {
+
+    const router = useRouter();
     return (
         <View style={{
             marginTop: 15
@@ -18,7 +21,14 @@ export default function CourseList({ courseList }) {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item, index}) => (
-                    <View key={index} style={styles.container}>
+                    <TouchableOpacity key={index} style={styles.container}
+                        onPress={() => router.push({
+                            pathname: '/courseView',
+                            params: {
+                                courseParams: JSON.stringify(item)
+                            }
+                        })}
+                    >
                         <Image source={imageAssets[item?.banner]} 
                             style={{
                                 width: 'auto',
@@ -32,7 +42,7 @@ export default function CourseList({ courseList }) {
                             fontFamily: 'outfit-bold',
                             fontSize: 16,
                             marginTop: 5
-                        }}>{item?.title}</Text>
+                        }}>{item?.courseTitle}</Text>
                         <View style={{
                             display: 'flex',
                             flexDirection: 'row',
@@ -45,9 +55,9 @@ export default function CourseList({ courseList }) {
                                 fontFamily: 'outfit',
                                 fontSize: 12,
                                 color: Colors.SECONDARY,
-                            }}>{item?.chapters[0]?.content?.length} Chapters</Text>
+                            }}>{item?.chapters?.length} Chapters</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 )}
             />
         </View>

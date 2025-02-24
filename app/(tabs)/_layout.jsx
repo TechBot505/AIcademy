@@ -7,6 +7,9 @@ export default function TabLayout() {
     return (
         <Tabs screenOptions={{ 
             headerShown: false,
+            style: {
+                backgroundColor: "#171717",          
+          },
             tabBarStyle: {
                 borderWidth: 1,
                 borderRadius: 10,
@@ -15,6 +18,9 @@ export default function TabLayout() {
                 width: '95%',
                 alignSelf: 'center',
                 height: 55,
+                position: 'absolute',
+                marginHorizontal: 10,
+                shadowColor: Colors.BLACK,
             }
         }}
         >
