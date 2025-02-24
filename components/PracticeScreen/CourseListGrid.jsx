@@ -7,21 +7,12 @@ import { useRouter } from 'expo-router';
 export default function CourseListGrid( {courseList, option} ) {
     const router = useRouter();
     const onPress = (course) => {
-        if(option?.name == 'Quiz') {
-            router.push({
-                pathname: '/practice/quiz',
-                params: {
-                    courseParams: JSON.stringify(course)
-                }
-            })
-        } else if(option?.name == 'Flashcards') {
-            router.push({
-                pathname: '/practice/flashcards',
-                params: {
-                    courseParams: JSON.stringify(course)
-                }
-            })
-        }
+        router.push({
+            pathname: option.path,
+            params: {
+                courseParams: JSON.stringify(course)
+            }
+        })
     }
     return (
         <View>
