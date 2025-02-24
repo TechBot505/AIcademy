@@ -5,6 +5,13 @@ import Colors from './../../constants/Colors';
 import { Bar as ProgressBar } from 'react-native-progress';
 
 export default function CourseProgress({ courseList }) {
+
+    const getCompletedChapters = (course) => {
+        const completedChapter = course?.completedChapter?.length;
+        const percentage = completedChapter / course?.chapters?.length;
+        return percentage;
+    }
+
     return (
         <View style={{
             marginTop: 10
@@ -64,13 +71,13 @@ export default function CourseProgress({ courseList }) {
                         <View style={{
                             marginTop: 10
                         }}>
-                            <ProgressBar progress={0.5} width={230} color={Colors.PRIMARY} />
+                            <ProgressBar progress={getCompletedChapters(item)} width={230} color={Colors.PRIMARY} />
                             <Text style={{
                                 fontFamily: 'outfit',
                                 fontSize: 12,
                                 color: Colors.SECONDARY,
                                 marginTop: 5
-                            }}>2 out of {item?.chapters?.length} Chapters Completed</Text>
+                            }}>{item?.completedChapter?.length ?? 0} out of {item?.chapters?.length} Chapters Completed</Text>
                         </View>
                     </View>
                 )}
