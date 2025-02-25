@@ -32,7 +32,6 @@ export default function PracticeTypeHomeScreen() {
             ), orderBy('created_at', 'desc'));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
                 setCourseList(prev => [...prev, doc.data()]);
             })
             setLoading(false);

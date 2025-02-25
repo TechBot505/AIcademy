@@ -5,7 +5,7 @@ import Colors from './../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 
-export default function CourseList({ courseList }) {
+export default function CourseList({ courseList, heading='Courses', fontSize=25 }) {
 
     const router = useRouter();
     return (
@@ -14,8 +14,8 @@ export default function CourseList({ courseList }) {
         }}>
             <Text style={{
                 fontFamily: 'outfit-bold',
-                fontSize: 25
-            }}>Courses</Text>
+                fontSize: fontSize
+            }}>{heading}</Text>
             <FlatList 
                 data={courseList}
                 horizontal={true}

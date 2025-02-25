@@ -18,6 +18,7 @@ export default {
     - Add CourseBanner Image from ('/banner1.jpg','/banner2.jpg', '/banner3.jpg', '/banner4.jpg', '/banner5.jpg', '/banner6.jpg')
     - Explain the chapter content as detailed tutorial
     - Generate 5 Quiz, 10 Flashcard and 5 Questions answer
+    - Tag the course to one of the category from : ['Tech & Coding', 'Buisness & Finance', 'Design', 'Marketing', 'Personal Development', 'Photography', 'Health & Fitness', 'Lifestyle', 'Language']
     - Note: Keep the length of the total content generated (output token length) strictly less than or equal to 8000 characters.
     
     - Output in JSON Format only
@@ -26,6 +27,7 @@ export default {
         "courseTitle": "",
         "description": "",
         "banner": "/banner1.png",
+        "category": "",
         "chapters": [
           {
             "chapterName": "",

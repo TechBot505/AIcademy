@@ -22,7 +22,6 @@ export default function AddCourse() {
         const PROMPT = userInput + '\n\n' + Prompt.IDEA;
         const aiResponse = await generateTopicsAIModel.sendMessage(PROMPT);
         const idea = JSON.parse(aiResponse.response.text());
-        console.log(idea);
         setChapters(idea?.course_titles);
         setLoading(false);
     }
@@ -33,7 +32,6 @@ export default function AddCourse() {
         try {
             const aiResponse = await generateCourseAIModel.sendMessage(PROMPT);
             const course = JSON.parse(aiResponse?.response.text());
-            console.log(course);
             const courseData = course?.courses;
             courseData.forEach( async (item) => {
                 const docId = Date.now().toString();

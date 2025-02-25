@@ -28,3 +28,5 @@ export const imageAssets = {
     '/banner6.jpg': require('../assets/images/banner6.jpg'),
     '/banner7.jpg': require('../assets/images/banner7.jpg'),
 }
+
+export const courseCategory = ['Tech & Coding', 'Buisness & Finance', 'Design', 'Marketing', 'Personal Development', 'Photography', 'Health & Fitness', 'Lifestyle', 'Language']

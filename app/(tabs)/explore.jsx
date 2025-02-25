@@ -1,16 +1,36 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
+import { View, Text, FlatList } from 'react-native'
+import React from 'react';
+import Colors from '../../constants/Colors';
+import { courseCategory } from '../../constants/Options';
+import CourseListByCategory from '../../components/Explore/CourseListByCategory';
 
 export default function Explore() {
     return (
-        <View>
-            <Image source={require('./../../assets/images/wave5.png')}
-                style={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: 450,
-                }}
-            />
-        </View>
+        <FlatList 
+            data={[]}
+            showsVerticalScrollIndicator={false}
+            style={{
+                backgroundColor: Colors.WHITE,
+                flex: 1,
+            }}
+            ListHeaderComponent={
+                <View style={{
+                    padding: 25,
+                    backgroundColor: Colors.WHITE,
+                    flex: 1
+                }}>
+                    <Text style={{
+                        fontSize: 28,
+                        fontFamily: 'outfit-bold'
+                    }}>Explore More Courses</Text>
+
+                    {courseCategory.map((category, index) => (
+                        <View key={index}>
+                            <CourseListByCategory category={category} />
+                        </View>
+                    ))}
+                </View>
+            }
+        />
     )
 }
