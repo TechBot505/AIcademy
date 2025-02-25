@@ -37,7 +37,7 @@ export default function QuizSummary() {
             showsVerticalScrollIndicator={false}
             ListHeaderComponent={
                 <View style={{
-                    marginBottom: -400,
+                    marginBottom: -400
                 }}>
                     <Image source={require('./../../../assets/images/gold.png')}
                         style={{
@@ -49,7 +49,8 @@ export default function QuizSummary() {
                         // position: 'absolute',
                         top: -400,
                         width: '100%',
-                        padding: 35
+                        padding: 35,
+                        paddingTop: 55
                     }}>
                         <Text style={{
                             fontSize: 35,

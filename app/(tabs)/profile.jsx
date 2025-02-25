@@ -28,6 +28,7 @@ export default function Profile() {
             padding: 25,
             backgroundColor: Colors.WHITE,
             flex: 1,
+            paddingTop: 50
         }}>
             <Text style={{
                 fontSize: 28,

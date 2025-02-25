@@ -38,7 +38,7 @@ export default function Intro( { course, enroll } ) {
             <Image source={imageAssets[course?.banner]}
                 style={{
                     width: '100%',
-                    height: 200,
+                    height: 250,
                     borderRadius: 15,
                     borderWidth: 0.1,
                     borderColor: Colors.SECONDARY
@@ -80,8 +80,16 @@ export default function Intro( { course, enroll } ) {
             </View>
             <Pressable style={{
                 position: 'absolute',
-                padding: 10,
-                zIndex: 100
+                padding: 5,
+                zIndex: 100,
+                top: 35,
+                left: 5,
+                width: 45,
+                height: 45,
+                borderRadius: 50,
+                backgroundColor: Colors.WHITE,
+                justifyContent: 'center',
+                alignItems: 'center'
             }} onPress={() => router.replace('/(tabs)/home')}>
                 <Ionicons name="arrow-back-sharp" size={28} color={Colors.TERTIARY} />
             </Pressable>

@@ -76,7 +76,8 @@ export default function index() {
             />
             <View style={{
                 position: 'absolute',
-                padding: 20
+                padding: 20,
+                paddingTop: 40,
             }}>
                 <View style={{
                     display: 'flex',

@@ -3,4 +3,6 @@
 3. Course preogress and quiz results does not get reset for new users
 4. Profile section ✅
 5. Background wallpaper
-6. Back button on create course page
+6. Back button on create course page ✅
+7. Status Bar ✅
+8. Quiz Complete Status

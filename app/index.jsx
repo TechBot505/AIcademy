@@ -27,6 +27,7 @@ export default function Index() {
           style={{
             flex: 1,
             backgroundColor: Colors.WHITE,
+            paddingTop: 40
           }}
         >
             <Image source={require('../assets/images/landing8.jpg')}

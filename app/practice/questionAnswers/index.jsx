@@ -25,6 +25,7 @@ export default function QuestionsAnswers() {
                 width: '100%',
                 padding: 20,
                 marginTop: 10,
+                paddingTop: 30,
             }}>
                 <View style={{
                     display: 'flex',

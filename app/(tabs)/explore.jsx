@@ -20,7 +20,8 @@ export default function Explore() {
                 <View style={{
                     padding: 25,
                     backgroundColor: Colors.WHITE,
-                    flex: 1
+                    flex: 1,
+                    paddingTop: 50
                 }}>
                     <Text style={{
                         fontSize: 28,

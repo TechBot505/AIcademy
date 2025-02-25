@@ -43,7 +43,8 @@ export default function Home() {
             ListHeaderComponent={
                 <View style={{
                     backgroundColor: Colors.WHITE,
-                    flex: 1
+                    flex: 1,
+                    paddingTop: 25
                 }}>
                     <Image source={require('./../../assets/images/wave4.png')}
                         style={{

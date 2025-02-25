@@ -46,12 +46,13 @@ export default function PracticeTypeHomeScreen() {
         <View>
             <Image source={option.image} style={{
                 width: '100%',
-                height: 150,
+                height: 180,
                 resizeMode: 'cover'
             }} />
             <View style={{
                 position: 'absolute',
                 padding: 15,
+                paddingTop: 40,
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: 'row',

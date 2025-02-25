@@ -59,7 +59,7 @@ export default function SignUp() {
       style={{
         display: "flex",
         alignItems: "center",
-        paddingTop: 100,
+        paddingTop: 130,
         flex: 1,
         backgroundColor: Colors.WHITE,
       }}

@@ -71,6 +71,7 @@ export default function AddCourse() {
               flex: 1,
               padding: 25,
               backgroundColor: Colors.WHITE,
+              paddingTop: 50,
             }}
           >
             <View style={{

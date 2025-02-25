@@ -41,7 +41,8 @@ export default function ChapterView() {
             style={{
                 padding: 25,
                 backgroundColor: Colors.WHITE,
-                flex: 1
+                flex: 1,
+                paddingTop: 50
             }}
         >
             <View>

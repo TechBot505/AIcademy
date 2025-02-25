@@ -41,6 +41,7 @@ export default function FlashcardScreen() {
                 position: 'absolute',
                 padding: 25,
                 width: '100%',
+                paddingTop: 40,
             }}>
                 <View style={{
                     display: 'flex',

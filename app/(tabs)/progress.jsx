@@ -40,7 +40,9 @@ export default function Progress() {
                 backgroundColor: Colors.WHITE,
             }}
             ListHeaderComponent={
-                <View>
+                <View style={{
+                    paddingTop: 25
+                }}>
                     <Image source={require('./../../assets/images/wave8.png')}
                         style={{
                             position: 'absolute',

@@ -2,6 +2,8 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { UserContext } from "@/context/userContext";
 import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
 
 export default function RootLayout() {
 
@@ -15,6 +17,7 @@ export default function RootLayout() {
 
     return (
         <UserContext.Provider value={{ userDetails, setUserDetails }}>
+            <StatusBar style="light" />
             <Stack screenOptions={{
                 headerShown: false,
             }}>

@@ -52,7 +52,7 @@ export default function SignIn() {
       style={{
         display: "flex",
         alignItems: "center",
-        paddingTop: 100,
+        paddingTop: 150,
         flex: 1,
         backgroundColor: Colors.WHITE,
       }}
