@@ -18,7 +18,7 @@ export default function Header() {
         }}>
             <View>
                 <Text style={{
-                    fontSize: 24,
+                    fontSize: 28,
                     fontFamily: 'outfit-bold',
                     marginBottom: 5,
                     color: Colors.WHITE
