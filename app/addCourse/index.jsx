@@ -8,6 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function AddCourse() {
     const [loading, setLoading] = useState(false);
@@ -64,97 +65,111 @@ export default function AddCourse() {
     }
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1, backgroundColor: Colors.WHITE}}>
-    <View
-      style={{
-        flex: 1,
-        padding: 25,
-        backgroundColor: Colors.WHITE,
-      }}
-    >
-      <Text
-        style={{
-          fontSize: 30,
-          fontFamily: "outfit-bold",
-        }}
-      >
-        Create New Course
-      </Text>
-      <Text
-        style={{
-          fontSize: 22,
-          fontFamily: "outfit",
-          color: Colors.SECONDARY,
-        }}
-      >
-        What would you like to learn today?
-      </Text>
-      <Text
-        style={{
-          fontSize: 16,
-          fontFamily: "outfit",
-          color: Colors.GRAY,
-          marginTop: 5,
-        }}
-      >
-        What course do you want to create (ex. Learn Python, Digital Marketing
-        etc..)
-      </Text>
-
-      <TextInput
-        numberOfLines={3}
-        multiline={true}
-        placeholder="Ex. Learn Python"
-        onChangeText={(text) => setUserInput(text)}
-        value={userInput}
-        style={{
-          fontSize: 16,
-          fontFamily: "outfit",
-          color: Colors.SECONDARY,
-          borderWidth: 1,
-          borderColor: Colors.GRAY,
-          padding: 10,
-          borderRadius: 10,
-          marginTop: 10,
-          height: 80,
-          textAlignVertical: "top",
-        }}
-      />
-      <Button title="Generate Topic" type='fill' loading={loading} onPress={() => onGenerateTopic()}/>
-
-        <View style={{
-            marginTop: 10
-        }}>
-            <Text style={{
-                fontSize: 18,
-                fontFamily: "outfit",
-            }}>Select all chapters that you want to add to the course</Text>
+      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1, backgroundColor: Colors.WHITE}}>
+          <View
+            style={{
+              flex: 1,
+              padding: 25,
+              backgroundColor: Colors.WHITE,
+            }}
+          >
             <View style={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                gap: 8,
-                marginTop: 5
+                backgroundColor: Colors.ACCENT,
+                width: 40,
+                height: 40,
+                borderRadius: 7,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginBottom: 5,
+                marginTop: -10
             }}>
-                {chapters.map((chapter, index) => (
-                    <Pressable key={index} onPress={() => handleSelectChapter(chapter)}>
-                        <Text style={{
-                            fontSize: 14,
-                            fontFamily: "outfit",
-                            borderWidth: 0.4,
-                            padding: 5,
-                            borderRadius: 50,
-                            paddingHorizontal: 10,
-                            backgroundColor: isChapterSelected(chapter) ? Colors.PRIMARY : Colors.WHITE,
-                            color: isChapterSelected(chapter) ? Colors.WHITE : Colors.PRIMARY,
-                            borderColor: isChapterSelected(chapter) ? Colors.PRIMARY : Colors.TERTIARY,
-                        }}>{chapter}</Text>
-                    </Pressable>
-                ))}
+            <Pressable onPress={() => router.back()}>
+                <Ionicons name="arrow-back-sharp" size={28} color={Colors.BLACK} />
+            </Pressable>
             </View>
-        </View>
-        { selectedChapters?.length > 0 && <Button title="Generate Course" loading={loading} onPress={onGenerateCourse}></Button>}
-    </View>
-    </ScrollView>
+            <Text
+              style={{
+                fontSize: 30,
+                fontFamily: "outfit-bold",
+              }}
+            >
+              Create New Course
+            </Text>
+            <Text
+              style={{
+                fontSize: 22,
+                fontFamily: "outfit",
+                color: Colors.SECONDARY,
+              }}
+            >
+              What would you like to learn today?
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: "outfit",
+                color: Colors.GRAY,
+                marginTop: 5,
+              }}
+            >
+              What course do you want to create (ex. Learn Python, Digital Marketing
+              etc..)
+            </Text>
+
+            <TextInput
+              numberOfLines={3}
+              multiline={true}
+              placeholder="Ex. Learn Python"
+              onChangeText={(text) => setUserInput(text)}
+              value={userInput}
+              style={{
+                fontSize: 16,
+                fontFamily: "outfit",
+                color: Colors.SECONDARY,
+                borderWidth: 1,
+                borderColor: Colors.GRAY,
+                padding: 10,
+                borderRadius: 10,
+                marginTop: 10,
+                height: 80,
+                textAlignVertical: "top",
+              }}
+            />
+            <Button title="Generate Topic" type='fill' loading={loading} onPress={() => onGenerateTopic()}/>
+
+              <View style={{
+                  marginTop: 10
+              }}>
+                  <Text style={{
+                      fontSize: 18,
+                      fontFamily: "outfit",
+                  }}>Select all chapters that you want to add to the course</Text>
+                  <View style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                      gap: 8,
+                      marginTop: 5
+                  }}>
+                      {chapters.map((chapter, index) => (
+                          <Pressable key={index} onPress={() => handleSelectChapter(chapter)}>
+                              <Text style={{
+                                  fontSize: 14,
+                                  fontFamily: "outfit",
+                                  borderWidth: 0.4,
+                                  padding: 5,
+                                  borderRadius: 50,
+                                  paddingHorizontal: 10,
+                                  backgroundColor: isChapterSelected(chapter) ? Colors.PRIMARY : Colors.WHITE,
+                                  color: isChapterSelected(chapter) ? Colors.WHITE : Colors.PRIMARY,
+                                  borderColor: isChapterSelected(chapter) ? Colors.PRIMARY : Colors.TERTIARY,
+                              }}>{chapter}</Text>
+                          </Pressable>
+                      ))}
+                  </View>
+              </View>
+              { selectedChapters?.length > 0 && <Button title="Generate Course" loading={loading} onPress={onGenerateCourse}></Button>}
+          </View>
+      </ScrollView>
   );
 }

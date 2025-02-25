@@ -85,8 +85,8 @@ export default function index() {
                     alignItems: 'center',
                     width: '100%'
                 }}>
-                    <Pressable>
-                        <Ionicons name="arrow-back-sharp" size={28} color={Colors.WHITE} onPress={() => router.back()} />
+                    <Pressable onPress={() => router.back()}>
+                        <Ionicons name="arrow-back-sharp" size={28} color={Colors.WHITE} />
                     </Pressable>
                     <Text style={{
                         color: Colors.WHITE,
