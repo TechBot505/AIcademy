@@ -5,6 +5,7 @@ import { query, collection, where, getDocs, orderBy } from 'firebase/firestore';
 import { db } from './../../config/firebaseConfig';
 import CourseProgressCard from './../../components/Shared/CourseProgressCard';
 import { useRouter } from 'expo-router';
+import Colors from '../../constants/Colors';
 
 export default function Progress() {
 
@@ -31,45 +32,54 @@ export default function Progress() {
     }
 
     return (
-        <View>
-            <Image source={require('./../../assets/images/wave8.png')}
-                style={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: 450,
-                }}
-            />
-            <View style={{
-                width: '100%',
-                position: 'absolute',
-                padding: 20,
-                marginTop: 5
-            }}>
-                <Text style={{
-                    fontFamily: 'outfit-bold',
-                    fontSize: 28,
-                    color: 'white',
-                    marginBottom: 10
-                }}>Course Progress</Text>
-                <FlatList
-                    data={courseList}
-                    onRefresh={() => getCourseList()}
-                    refreshing={loading}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({item, index}) => (
-                        <TouchableOpacity key={index}
-                            onPress={() => router.push({
-                                pathname: '/courseView/' + item?.docId,
-                                params: {
-                                    courseParams: JSON.stringify(item)
-                                }
-                            })}
-                        >
-                            <CourseProgressCard item={item} width={'95%'} />
-                        </TouchableOpacity>
-                    )}
-                />
-            </View>
-        </View>
+        <FlatList
+            data={[]}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+                paddingBottom: 50,
+                backgroundColor: Colors.WHITE,
+            }}
+            ListHeaderComponent={
+                <View>
+                    <Image source={require('./../../assets/images/wave8.png')}
+                        style={{
+                            position: 'absolute',
+                            width: '100%',
+                            height: 450,
+                        }}
+                    />
+                    <View style={{
+                        width: '100%',
+                        padding: 20,
+                        marginTop: 5
+                    }}>
+                        <Text style={{
+                            fontFamily: 'outfit-bold',
+                            fontSize: 28,
+                            marginBottom: 10,
+                            color: Colors.WHITE
+                        }}>Course Progress</Text>
+                        <FlatList
+                            data={courseList}
+                            onRefresh={() => getCourseList()}
+                            refreshing={loading}
+                            showsVerticalScrollIndicator={false}
+                            renderItem={({item, index}) => (
+                                <TouchableOpacity key={index}
+                                    onPress={() => router.push({
+                                        pathname: '/courseView/' + item?.docId,
+                                        params: {
+                                            courseParams: JSON.stringify(item)
+                                        }
+                                    })}
+                                >
+                                    <CourseProgressCard item={item} width={'95%'} />
+                                </TouchableOpacity>
+                            )}
+                        />
+                    </View>
+                </View>
+            }
+        />
     )
 }

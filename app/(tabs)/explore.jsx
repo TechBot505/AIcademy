@@ -9,6 +9,9 @@ export default function Explore() {
         <FlatList 
             data={[]}
             showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+                paddingBottom: 50
+            }}
             style={{
                 backgroundColor: Colors.WHITE,
                 flex: 1,
