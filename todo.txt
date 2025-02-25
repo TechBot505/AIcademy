@@ -1,0 +1,6 @@
+1. Infinite refresh bug on first time registration
+2. Double courses display everytime opening the apps
+3. Course preogress and quiz results does not get reset for new users
+4. Profile section
+5. Background wallpaper
+6. Back button on create course page

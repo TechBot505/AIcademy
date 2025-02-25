@@ -10,4 +10,7 @@ export default {
     LIGHT_GREEN: '#DBFFDD',
     RED: '#FF0000',
     LIGHT_RED: '#FFDDDD',
+    SILVER: '#e1eaf4',
+    DARK_SILVER: '#abbbcc',
+    BLACK: '#000000',
 }

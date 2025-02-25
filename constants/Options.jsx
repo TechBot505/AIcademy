@@ -30,3 +30,31 @@ export const imageAssets = {
 }
 
 export const courseCategory = ['Tech & Coding', 'Buisness & Finance', 'Design', 'Marketing', 'Personal Development', 'Photography', 'Health & Fitness', 'Lifestyle', 'Language']
+
+export const ProfileMenu = [
+    {
+        name: 'Add Course',
+        icon: 'add-outline',
+        path: '/addCourse'
+    },
+    {
+        name: 'My Courses',
+        icon: 'book',
+        path: '/(tabs)/home'
+    },
+    {
+        name: 'Course Progress',
+        icon: 'analytics-outline',
+        path: '/(tabs)/progress'
+    },
+    {
+        name: 'My Subscription',
+        icon: 'shield-checkmark',
+        path: '/'
+    },
+    {
+        name: 'Logout',
+        icon: 'log-out',
+        path: '/login'
+    }
+]
